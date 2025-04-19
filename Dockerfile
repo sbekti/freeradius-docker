@@ -1,6 +1,6 @@
-FROM ubuntu:22.04
+FROM ubuntu:24.04
 ARG DEBIAN_FRONTEND=noninteractive
-ARG FREERADIUS_VERSION=3.0.26
+ARG FREERADIUS_VERSION=3.2.5*
 
 #
 #  We need curl to get the signing key
