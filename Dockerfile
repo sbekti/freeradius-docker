@@ -1,5 +1,6 @@
 FROM ubuntu:22.04
 ARG DEBIAN_FRONTEND=noninteractive
+ARG FREERADIUS_VERSION=3.0.26
 
 #
 #  We need curl to get the signing key
@@ -22,7 +23,12 @@ ARG freerad_gid=101
 RUN groupadd -g ${freerad_gid} -r freerad \
  && useradd -u ${freerad_uid} -g freerad -r -M -d /etc/freeradius -s /usr/sbin/nologin freerad \
  && apt-get update \
- && apt-get install -y freeradius freeradius-ldap freeradius-postgresql freeradius-redis freeradius-yubikey \
+ && apt-get install -y \
+      freeradius=${FREERADIUS_VERSION}* \
+      freeradius-ldap=${FREERADIUS_VERSION}* \
+      freeradius-postgresql=${FREERADIUS_VERSION}* \
+      freeradius-redis=${FREERADIUS_VERSION}* \
+      freeradius-yubikey=${FREERADIUS_VERSION}* \
  && apt-get clean \
  && rm -r /var/lib/apt/lists/* \
     \
