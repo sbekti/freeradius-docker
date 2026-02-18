@@ -29,6 +29,7 @@ RUN groupadd -g ${freerad_gid} -r freerad \
       freeradius-postgresql=${FREERADIUS_VERSION}* \
       freeradius-redis=${FREERADIUS_VERSION}* \
       freeradius-yubikey=${FREERADIUS_VERSION}* \
+      jq \
  && apt-get clean \
  && rm -r /var/lib/apt/lists/* \
     \
