@@ -36,9 +36,9 @@ RUN groupadd -g ${freerad_gid} -r freerad \
  && ln -s /etc/freeradius /etc/raddb
 
 WORKDIR /
-COPY docker-entrypoint.sh docker-entrypoint.sh
-RUN chmod +x docker-entrypoint.sh
+COPY entrypoint.sh entrypoint.sh
+RUN chmod +x entrypoint.sh
 
 EXPOSE 1812/udp 1813/udp
-ENTRYPOINT ["/docker-entrypoint.sh"]
+ENTRYPOINT ["/entrypoint.sh"]
 CMD ["freeradius"]
